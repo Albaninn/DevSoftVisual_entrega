@@ -1,6 +1,7 @@
-internal class periodo
+internal class Periodo
 {
-    private string _HoraEntrada{get; set;};
-    private string _HoraSaida{get; set;};
+    public string? Id {get; set;}
+    public string? HoraEntrada{get; set;}
+    public string? HoraSaida{get; set;}
 
 }

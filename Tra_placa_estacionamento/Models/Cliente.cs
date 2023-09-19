@@ -1,11 +1,12 @@
-internal class cliente
-{
-    private string _nome {get; set;};
-    private string _cpf {get; set;};
-    private string _email {get; set;};
+using System.ComponentModel.DataAnnotations;
 
-    public void SolicitaTicket
-    {
-        
-    }
+public class Cliente
+{
+    [Key]
+    public string? Id {get; set;}
+    public string? Nome {get; set;}
+    public string? Cpf {get; set;}
+    public string? Email {get; set;}
+
+    /*public void SolicitaTicket {get; set;}*/
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento\\estacionamento.csproj": {}
+    "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento\\estacionamento.csproj": {
+    "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento\\estacionamento.csproj",
+        "projectUniqueName": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento.csproj",
         "projectName": "estacionamento",
-        "projectPath": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento\\estacionamento.csproj",
+        "projectPath": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento.csproj",
         "packagesPath": "C:\\Users\\cesar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\Tra_placa_estacionamento\\estacionamento\\obj\\",
+        "outputPath": "C:\\Users\\cesar\\Desktop\\facul\\UP\\2023.2\\DevSoftVisual\\DevSoftVisual\\Tra_placa_estacionamento\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cesar\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,6 +41,24 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools.DotNet": {
+              "target": "Package",
+              "version": "[2.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

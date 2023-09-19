@@ -1,57 +1,71 @@
 using Microsoft.AspNetCore.Mvc;
-
-namespace estacionamento.Controllers;
+using Microsoft.EntityFrameworkCore;
+namespace Tra_placa_estacionamento.Controllers;
 
 [ApiController]
 [Route("[controller]")]
 public class VeiculoController : ControllerBase
 {
-    private readonly ILogger<VeiculoController> _logger;
-
-    public VeiculoController(ILogger<VeiculoController> logger)
+    private EstacionamentoDbContext _context;
+    public VeiculoController(EstacionamentoDbContext context)
     {
-        _logger = logger;
-    }
-    /*[HttpGet(Name = "GetVeiculo")]
-    public IEnumerable<Veiculo> Get()
-    {
-        List<Veiculo> veic = new()
-        {
-            new Veiculo("ABC1234", "1"),
-            new Veiculo("CBA1234", "2"),
-            new Veiculo("ABC4321", "3"),
-            new Veiculo("CBA4321", "4")
-        };
-        return veic;
-    }*/
-    //get: API/veiculo/listar
-    [HttpGet(Name = "GetVeiculo")]
-    [Route("listar")]
-    public IActionResult Listar()
-    {
-        return Ok(veic);
+        _context = context;
     }
     
-    //GET: API/veiculo/buscar/{placa}
+    [HttpGet()]
+    [Route("listar")]
+    public async Task<ActionResult<IEnumerable<Veiculo>>> Listar()
+    {
+        if (_context.veiculo is null) return NotFound();
+        return await _context.veiculo.ToListAsync();
+    }
+    
     [HttpGet()]
     [Route("buscar/{placa}")]
-    public IActionResult Buscar(string placa)
+    public async Task<ActionResult<Veiculo>> Buscar([FromRoute]string placa)
     {
-        Veiculo veicTemp = veic.Find(x => x.Placa == placa);
-        if(veicTemp is not null)
-            return Ok(veicTemp);
-        else
-            return NotFound();
+        if (_context.veiculo is null) return NotFound();
+        var veiculo = await _context.veiculo.FindAsync(placa);
+        return veiculo;
     }
 
-    //POST: API/veiculo/cadastrar
     [HttpPost()]
     [Route("cadastrar")]
-    public IActionResult Cadastrar(VeiculoController veic)
+    public async Task<IActionResult> Cadastrar(Veiculo veiculo)
     {
-        veic.Add(veic)
-        return Created("", veic);
+        await _context.AddAsync(veiculo);
+        await _context.SaveChangesAsync();
+        return Created("", veiculo);
     }
 
-    
+    [HttpPut]
+    [Route("alterar")]
+    public async Task<IActionResult> Alterar(Veiculo veiculo)
+    {
+        _context.veiculo.Update(veiculo);
+        await _context.SaveChangesAsync();
+        return Ok();
+    }
+
+    [HttpDelete]
+    [Route("excluir/{placa}")]
+     public async Task<IActionResult> excluir(string placa)
+     {
+        var veiculo = await _context.veiculo.FindAsync(placa);
+        if (_context.veiculo is null) return NotFound();
+        _context.veiculo.Remove(veiculo);
+        await _context.SaveChangesAsync();
+        return Ok();
+     }
+
+     [HttpPatch]
+     [Route("modificardescricao/{placa}")]
+     public async Task<IActionResult> ModificarDescricao(string placa, [FromForm] int Id)
+     {
+        var veiculo = await _context.veiculo.FindAsync(placa);
+        if (_context.veiculo is null) return NotFound();
+        veiculo.Id = Id;
+        await _context.SaveChangesAsync();
+        return Ok();
+     }
 }
