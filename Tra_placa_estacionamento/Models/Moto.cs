@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 public class Moto : Veiculo
 {
     [Key]
-    public new int? Id {get; set;}
-    public Boolean? Bau {get; set;}
+    privata new int? Id {get; set;}
+    private Boolean? Bau {get; set;}
 
 }
