@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations;
 internal class Periodo
 {
     [Key]
-    private string? _idPerido;
+    private int? _idPerido;
     private DateTime? _HoraEntrada;
     private DateTime? _HoraSaida;
 
 
 
-    public string? IdPerido
+    public int? IdPerido
     {
         get=>_idPerido;
-        set=>_idPerido = value;
+        set=>_idPerido = 0;
     }
 
     public DateTime? HoraEntrada
@@ -31,6 +31,7 @@ internal class Periodo
 
     public Periodo()
     {
+        _idPeriodo = new int();
         _HoraEntrada = new DateTime();
         _HoraSaida = null;
     }
