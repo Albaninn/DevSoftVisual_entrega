@@ -5,6 +5,10 @@ public class Servico
 	private int? _idServico;
 	private double _ValorPagar;
 	private string? _DescricaoServico;
+    private double _ValorHora;
+
+    private Periodo _Periodo;//usar para retornar os horários de permanencia e multiplicar pelo valorHora;
+
 
 
 	public int? IdServico
@@ -24,14 +28,21 @@ public class Servico
 		set=> _DescricaoServico = value;
 	}
 
+    public double? ValorHora
+    {
+        get => _ValorHora;
+        set => _ValorHora= 5.50;
+
+    }
 
 
-	public Servico()
+    public Servico()
 	{
 		_idServico = new int();
-		_ValorPagar = 0;
+		_ValorPagar = 0.0;
 		_DescricaoServico = string.Empty;
 	}
+
 
 
 
