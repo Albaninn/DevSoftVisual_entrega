@@ -140,3 +140,6 @@ C:\Users\cesar\Desktop\facul\UP\2023.2\DevSoftVisual\DevSoftVisual\estacionament
 C:\Users\cesar\Desktop\facul\UP\2023.2\DevSoftVisual\DevSoftVisual\estacionamento\obj\Debug\net7.0\estacionamento.pdb
 C:\Users\cesar\Desktop\facul\UP\2023.2\DevSoftVisual\DevSoftVisual\estacionamento\obj\Debug\net7.0\estacionamento.genruntimeconfig.cache
 C:\Users\cesar\Desktop\facul\UP\2023.2\DevSoftVisual\DevSoftVisual\estacionamento\obj\Debug\net7.0\ref\estacionamento.dll
+C:\Users\guima\Source\Repos\Albaninn\DevSoftVisual\estacionamento\obj\Debug\net7.0\estacionamento.dll
+C:\Users\guima\Source\Repos\Albaninn\DevSoftVisual\estacionamento\obj\Debug\net7.0\refint\estacionamento.dll
+C:\Users\guima\Source\Repos\Albaninn\DevSoftVisual\estacionamento\obj\Debug\net7.0\estacionamento.pdb
