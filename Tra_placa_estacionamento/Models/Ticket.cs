@@ -4,9 +4,12 @@ public class Ticket
     [Key]
     private int _idTicket;
     private int _codTicket;
-    private double _ValorHoraEstacionamento;
+    
 
-    private Periodo _Periodo;
+
+    private Periodo _periodo;
+    private Servico _servico;
+
 
 
     public int? IdTicket
@@ -22,20 +25,13 @@ public class Ticket
 
     }
 
-    public double? ValorHoraEstacionamento
-    {
-        get => _ValorHoraEstacionamento;
-        set=> _ValorHoraEstacionamento = 5.50;
-        
-    }
-
-
-
+    
     public Ticket()
     {
         _idTicket = new int();
         _codTicket = new int();
-        _Periodo = new();
+        _periodo = new Periodo();
+        
     }
 
 }
