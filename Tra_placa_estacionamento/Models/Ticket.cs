@@ -35,7 +35,7 @@ public class Ticket
     {
         _idTicket = new int();
         _codTicket = new int();
-        _ValorHoraEstacionamento = _ValorHoraEstacionamento;
+        _Periodo = new();
     }
 
 }
