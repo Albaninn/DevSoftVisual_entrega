@@ -6,7 +6,7 @@ public class Ticket
     private int _codTicket;
     private double _ValorHoraEstacionamento;
 
-
+    private Periodo _Periodo;
 
 
     public int? IdTicket
