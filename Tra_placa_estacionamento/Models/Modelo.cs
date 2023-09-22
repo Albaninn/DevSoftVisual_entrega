@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 public class Modelo
 {
     [Key]
-    private int? _IdModelo;
-    private string? _DescricaoModelo;
+    public int? Id {get; set;}
+    public string? _DescricaoModelo {get; set;}
 
     public enum Tamanho {pequeno, medio, grande};
 
@@ -14,24 +14,10 @@ public class Modelo
     protected Tamanho _Porte;
 
 
-    
-    public int? IdModelo
-    {
-        get=>_IdModelo;
-        set=>_IdModelo = value;
-    }
-
-    public string? DescricaoModelo
-    {
-        get=> _DescricaoModelo;
-        set=> _DescricaoModelo = value;
-    }
-   
-
 
     public Modelo()
     {
-        _IdModelo = null;
+         Id = null;
         _DescricaoModelo = string.Empty;
         _Porte = Tamanho.pequeno;
         _Marca = new();
