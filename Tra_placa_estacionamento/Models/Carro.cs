@@ -2,23 +2,15 @@ using System.ComponentModel.DataAnnotations;
 
 public class Carro : Veiculo
 {
-    [Key]
-    private int? _IdCarro;
-    private int? _NroPortas;
+    public int? Id {get; set;};
+    public int? _NroPortas {get; set;};
 
-    private Veiculo _veiculo;
-
-
-    public int? IdCarro
-    {
-        get=> _IdCarro;
-        set=> _IdCarro = value;
-    }
+    public Veiculo _veiculo;
 
 
     public Carro()
     {
-        _IdCarro = null;
+        Id = null;
         _NroPortas = null;
         _veiculo = new();
 
