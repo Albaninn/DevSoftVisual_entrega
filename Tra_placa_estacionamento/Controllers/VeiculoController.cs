@@ -64,7 +64,7 @@ public class VeiculoController : ControllerBase
      {
         var veiculo = await _context.veiculo.FindAsync(placa);
         if (_context.veiculo is null) return NotFound();
-        veiculo.Id = Id;
+        veiculo.IdVeiculo = Id;
         await _context.SaveChangesAsync();
         return Ok();
      }
