@@ -11,7 +11,7 @@ public class VeiculoController : ControllerBase
     {
         _context = context;
     }
-    
+
     [HttpGet()]
     [Route("listar")]
     public async Task<ActionResult<IEnumerable<Veiculo>>> Listar()
@@ -19,10 +19,10 @@ public class VeiculoController : ControllerBase
         if (_context.veiculo is null) return NotFound();
         return await _context.veiculo.ToListAsync();
     }
-    
+
     [HttpGet()]
     [Route("buscar/{placa}")]
-    public async Task<ActionResult<Veiculo>> Buscar([FromRoute]string placa)
+    public async Task<ActionResult<Veiculo>> Buscar([FromRoute] string placa)
     {
         if (_context.veiculo is null) return NotFound();
         var veiculo = await _context.veiculo.FindAsync(placa);
@@ -49,23 +49,23 @@ public class VeiculoController : ControllerBase
 
     [HttpDelete]
     [Route("excluir/{placa}")]
-     public async Task<IActionResult> excluir(string placa)
-     {
+    public async Task<IActionResult> excluir(string placa)
+    {
         var veiculo = await _context.veiculo.FindAsync(placa);
         if (_context.veiculo is null) return NotFound();
         _context.veiculo.Remove(veiculo);
         await _context.SaveChangesAsync();
         return Ok();
-     }
+    }
 
-     [HttpPatch]
-     [Route("modificardescricao/{placa}")]
-     public async Task<IActionResult> ModificarDescricao(string placa, [FromForm] int Id)
-     {
+    [HttpPatch]
+    [Route("modificardescricao/{placa}")]
+    public async Task<IActionResult> ModificarDescricao(string placa, [FromForm] int Id)
+    {
         var veiculo = await _context.veiculo.FindAsync(placa);
         if (_context.veiculo is null) return NotFound();
-        veiculo.IdVeiculo = Id;
+        veiculo.Id = Id;
         await _context.SaveChangesAsync();
         return Ok();
-     }
+    }
 }
