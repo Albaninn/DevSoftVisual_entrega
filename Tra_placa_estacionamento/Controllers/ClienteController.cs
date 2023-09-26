@@ -60,11 +60,11 @@ public class ClienteController : ControllerBase
 
     [HttpPatch]
     [Route("modificardescricao/{cpf}")]
-    public async Task<IActionResult> ModificarDescricao(string Cpf, [FromForm] int Id)
+    public async Task<IActionResult> ModificarEmail(string Cpf, [FromForm] string Email)
     {
         var cliente = await _context.cliente.FindAsync(Cpf);
         if (_context.cliente is null) return NotFound();
-        cliente.Id = Id;
+        cliente.Email = Email;
         await _context.SaveChangesAsync();
         return Ok();
     }

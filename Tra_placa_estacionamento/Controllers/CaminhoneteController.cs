@@ -60,11 +60,11 @@ public class CaminhoneteController : ControllerBase
 
     [HttpPatch]
     [Route("modificardescricao/{placa}")]
-    public async Task<IActionResult> ModificarDescricao(string placa, [FromForm] int Id)
+    public async Task<IActionResult> ModificarDescricao(string placa, [FromForm] string Descricao)
     {
         var caminhonete = await _context.caminhonete.FindAsync(placa);
         if (_context.caminhonete is null) return NotFound();
-        caminhonete.Id = Id;
+        caminhonete.Descricao = Descricao;
         await _context.SaveChangesAsync();
         return Ok();
     }
