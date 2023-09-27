@@ -59,12 +59,46 @@ public class ClienteController : ControllerBase
     }
 
     [HttpPatch]
-    [Route("modificardescricao/{cpf}")]
+    [Route("modificaremail/{cpf}")]
     public async Task<IActionResult> ModificarEmail(string Cpf, [FromForm] string Email)
     {
         var cliente = await _context.cliente.FindAsync(Cpf);
         if (_context.cliente is null) return NotFound();
         cliente.Email = Email;
+        await _context.SaveChangesAsync();
+        return Ok();
+    }
+
+    [HttpPost]
+    [Route("adicionarveiculo/{cpf}")]
+    public async Task<IActionResult> AdicionarVeiculo([FromRoute] string cpf, [FromBody] Veiculo veiculo)
+    {
+        var cliente = await _context.cliente.FindAsync(cpf);
+        if (cliente == null) return NotFound("Cliente não encontrado.");
+
+        if (cliente.Veiculos == null)
+        {
+            cliente.Veiculos = new List<Veiculo>();
+        }
+        cliente.Veiculos.Add(veiculo);
+        await _context.SaveChangesAsync();
+        return Created("", veiculo);
+    }
+
+
+    [HttpPost]
+    [Route("associarveiculo/{cpf}")]
+    public async Task<IActionResult> AssociarVeiculo([FromRoute] string cpf, [FromBody] string placa)
+    {
+        var cliente = await _context.cliente.FindAsync(cpf);
+        if (cliente == null) return NotFound("Cliente não encontrado.");
+
+        var veiculo = await _context.veiculo.FirstOrDefaultAsync(v => v.Placa == placa);
+        if (veiculo == null) return NotFound("Veículo não encontrado.");
+
+        if (veiculo.Cliente != null) return BadRequest("O veículo já está associado a um cliente.");
+        veiculo.Cliente = cliente;
+
         await _context.SaveChangesAsync();
         return Ok();
     }

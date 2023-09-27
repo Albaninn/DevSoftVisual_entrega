@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Veiculo
 {
@@ -11,4 +12,11 @@ public class Veiculo
 
     public Cor CorExterna {get; set;}
     public Modelo?  Modelo {get; set;}
+
+    // Chave estrangeira para Cliente
+    public string? ClienteCpf { get; set; }
+
+    // Propriedade de navegação para Cliente
+    [ForeignKey("ClienteCpf")]
+    public virtual Cliente? Cliente { get; set; }
 }
