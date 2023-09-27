@@ -17,6 +17,6 @@ public class Veiculo
     public string? ClienteCpf { get; set; }
 
     // Propriedade de navegação para Cliente
-    [ForeignKey("ClienteCpf")]
-    public virtual Cliente? Cliente { get; set; }
+    // [ForeignKey("ClienteCpf")]
+    public /* virtual */ Cliente? Cliente { get; set; }
 }

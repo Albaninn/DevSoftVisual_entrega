@@ -49,9 +49,9 @@ public class ClienteController : ControllerBase
 
     [HttpDelete]
     [Route("excluir/{cpf}")]
-    public async Task<IActionResult> excluir(string Cpf)
+    public async Task<IActionResult> excluir(int Id)
     {
-        var cliente = await _context.cliente.FindAsync(Cpf);
+        var cliente = await _context.cliente.FindAsync(Id);
         if (_context.cliente is null) return NotFound();
         _context.cliente.Remove(cliente);
         await _context.SaveChangesAsync();
