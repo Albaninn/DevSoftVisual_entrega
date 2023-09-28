@@ -96,8 +96,13 @@ public class ClienteController : ControllerBase
         var veiculo = await _context.veiculo.FirstOrDefaultAsync(v => v.Placa == placa);
         if (veiculo == null) return NotFound("Veículo não encontrado.");
 
-        if (veiculo.Cliente != null) return BadRequest("O veículo já está associado a um cliente.");
-        veiculo.Cliente = cliente;
+        /*if (veiculo.Cliente != null) return BadRequest("O veículo já está associado a um cliente.");*/
+        
+        // Adicione o veículo à lista de veículos do cliente
+        cliente.Veiculos.Add(veiculo);
+        
+        // Associe o veículo ao cliente
+        /*veiculo.Cliente = cliente;*/
 
         await _context.SaveChangesAsync();
         return Ok();
