@@ -1,0 +1,55 @@
+Na janela terminal, crie o projeto do tipo Web API: (alterar o nome "MinhaAPI")
+
+	dotnet new webapi -o MinhaAPI
+	cd MinhaAPI
+
+	dotnet add package Microsoft.EntityFrameworkCore.InMemory (não é necessario)
+
+	code -r ../MinhaAPI
+
+Confie no certificado de desenvolvimento HTTPS:
+
+	dotnet dev-certs https --trust
+
+Inicie o aplicativo no perfil HTTPS:
+
+	dotnet run --launch-profile https
+
+• CTRL+click na URL de saída para abrir o navegador na portaespecificada. 
+	Ex: https://localhost:7258
+• Como não há entrada padrão para a URL, vamos utilizar o swagger(api livre) para testar nossa API;
+ na barra de endereços do navegador,complemente o final da URL com /swagger. 
+	Ex.:https://localhost:7258/swagger/
+
+
+
+
+
+
+
+PACOTES DE ACESSO A DADOS
+
+	dotnet add package Microsoft.EntityFrameworkCore
+	dotnet add package Microsoft.EntityFrameworkCore.Tools.DotNet
+	dotnet add package Microsoft.EntityFrameworkCore.Design
+	dotnet tool install --global dotnet-ef
+	dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+
+MIGRATIONS
+
+• É necessário definir a migração inicial do banco:
+
+	dotnet ef migrations add CriacaoInicial 	(migração inicial)
+
+• Toda vez que houver alteração na model, criar novamigração e atualizar o BD:
+
+	dotnet ef migrations add AlteradoTalCoisa
+	dotnet ef database update
+
+
+
+
+
+
+
+
