@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations.Schema;
 
 public class Veiculo
 {
@@ -7,9 +7,7 @@ public class Veiculo
     public int? Id {get; set;}
     public string? Placa {get; set;}
     public string? Descricao {get; set;}
-
     public enum Cor {Vermelho, Branco, Preto, Prata}
-
     public Cor CorExterna {get; set;}
     public Modelo?  Modelo {get; set;}
 
