@@ -8,6 +8,6 @@ public class Cliente
     public string? Nome {get; set;}
     public string? Email {get; set;}
      // Lista de veículos associados ao cliente
-    public virtual ICollection<Veiculo> Veiculos { get; set; } = new List<Veiculo>();
+    public virtual ICollection<Veiculo> Veiculos { get; set; }
 
 }
