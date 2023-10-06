@@ -1,7 +1,9 @@
 # DevSoftVisual
 Aula Desenvolvimento de Software Visual
 
-Este é um projeto de um app estacionamento com entrada por leitura da placa do carro. Desenvolvido com linguagem C# / NetcoreFramework  7.0 + Sqlite como banco de dados.
+Este é um projeto de um app estacionamento com entrada por leitura da placa do carro. 
+Desenvolvido com linguagem C# / NetcoreFramework  7.0 + Sqlite como banco de dados.
+
 desenvolvido pelos alunos:
 
 Lucas Albano ->classes: Veiculo e Cliente
