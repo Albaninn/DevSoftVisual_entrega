@@ -37,11 +37,11 @@ namespace Tra_placa_estacionamento.Controllers;
             //--------------------------------------------------------------------//
 
             [HttpGet()]
-            [Route("buscar/{COD}")]
-            public async Task<ActionResult<Ticket>> Buscar([FromRoute] int codTicket)
+            [Route("buscar/{Placa}")]
+            public async Task<ActionResult<Ticket>> Buscar([FromRoute] String placa)
             {
                 if (_context.ticket is null) return NotFound();
-                var ticket = await _context.ticket.FindAsync(codTicket);
+                var ticket = await _context.ticket.FirstOrDefaultAsync(x => x.Veiculo.Placa ==placa );
                 return ticket;
             }
 
@@ -50,11 +50,18 @@ namespace Tra_placa_estacionamento.Controllers;
 
             [HttpPost()]
             [Route("inserir")]
-            public async Task<ActionResult<Ticket>> Inserir([FromBody] Ticket ticket)
+            public async Task<ActionResult<Ticket>> Inserir([FromBody] Ticket novaentrada)
             {
-                _context.ticket.Add(ticket);
-                await _context.SaveChangesAsync();
-                return ticket;
+                if (novaentrada.Veiculo.Descricao.Contains("XYZ Widget"))
+                {
+                return BadRequest();
+                }
+
+            _context.ticket.Add(novaentrada);
+
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(Buscar), new { id = novaentrada.Id }, novaentrada);
             }
 
             //--------------------------------------------------------------------//
@@ -62,9 +69,11 @@ namespace Tra_placa_estacionamento.Controllers;
 
             [HttpPut]
             [Route("alterar")]
-            public async Task<IActionResult> Alterar(Ticket ticket)
+            public async Task<IActionResult> Alterar(Ticket inputticket)
             {
-                _context.ticket.Update(ticket);
+                //var novo = new Ticket(id, codticket, true);
+
+                _context.ticket.Update(inputticket);
                 await _context.SaveChangesAsync();
                 return Ok();
             }
@@ -73,7 +82,7 @@ namespace Tra_placa_estacionamento.Controllers;
 
             [HttpDelete]
             [Route("excluir/{COD}")]
-            public async Task<IActionResult> Excluir([FromRoute] string codTicket)
+            public async Task<IActionResult> Excluir([FromRoute] int codTicket)
             {
                 var ticket = await _context.ticket.FindAsync(codTicket);
                 if (ticket is null) return NotFound();

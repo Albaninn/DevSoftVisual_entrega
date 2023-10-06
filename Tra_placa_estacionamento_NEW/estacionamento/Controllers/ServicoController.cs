@@ -40,7 +40,7 @@ namespace Tra_placa_estacionamento.Controllers;
         public async Task<ActionResult<Servico>> Buscar([FromRoute] string descricao)
         {
             if (_context.servico is null) return NotFound();
-            var servico = await _context.servico.FindAsync(descricao);
+            var servico = await _context.servico.FirstOrDefaultAsync(x => x.DescricaoServico ==descricao );//forçar a procura por string
             return servico;
         }
 
@@ -49,11 +49,18 @@ namespace Tra_placa_estacionamento.Controllers;
 
         [HttpPost()]
         [Route("cadastrar")]
-        public async Task<IActionResult> Cadastrar(Servico servico)
+        public async Task<IActionResult> Cadastrar(Servico novoservico)
         {
-            await _context.AddAsync(servico);
+             if (novoservico.DescricaoServico.Contains("XYZ Widget"))
+                {
+                return BadRequest();
+                }
+
+            _context.servico.Add(novoservico);
+
             await _context.SaveChangesAsync();
-            return Created("", servico);
+
+            return CreatedAtAction(nameof(Buscar), new { id = novoservico.Id }, novoservico);
         }
 
         //--------------------------------------------------------------------//

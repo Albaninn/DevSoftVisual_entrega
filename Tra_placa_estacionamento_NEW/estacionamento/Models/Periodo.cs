@@ -14,15 +14,31 @@ public class Periodo
     //----------------------------------------------------------------
 
 
-    public Periodo? solicitarEntrada()
-    { this.HoraEntrada = DateTime.Now;
+    public Periodo? solicitarEntrada(Boolean entra)
+
+    { 
+        if(entra == true){
+            this.HoraEntrada = DateTime.Now;
         return this;
+        }
+        else{
+            return null;
+        }
     }
 
 
-    public Periodo? solicitarSaida()
-    { this.HoraSaida = DateTime.Now;
-      return this;       
+    public Periodo? solicitarSaida(Boolean sair)
+    { 
+        if(sair == true)
+        {
+            this.HoraSaida = DateTime.Now;
+            return this;
+
+        }
+        else{
+            return null;
+        }
+             
      }
 
     public TimeSpan? processarPermanencia()

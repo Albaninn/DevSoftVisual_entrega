@@ -6,20 +6,30 @@ public class Ticket
     public int Id {get; set;}
     public  int CodTicket {get; set;}
 
-    public Servico Servico {get; set;}//chave estrangeira de servico
-    public Veiculo Veiculo { get; set;}//chave estrangeira de veiculo
+    public int ServicoId {get; set;}//atributo para inserir dado no banco
+    public String VeiculoPlaca{get; set;}//atributo para inserir dado no banco
 
-    public Ticket(){
+    //-------------------------------------------------------------------------
+
+    public Servico Servico {get; set;}//referenciamento chave estrangeira de servico
+    public Veiculo Veiculo { get; set;}//referenciamento chave estrangeira de veiculo
+    
+
+    //-------------------------------------------------------------------------
+    public Ticket() { }
+
+    public Ticket(int id, int cod, Boolean ativar){
         this.Id = 0;
         this.CodTicket = 0;
-        Servico._Periodo.solicitarEntrada();
+        Servico._Periodo.solicitarEntrada(ativar);
 
     }
     //-------------------------------------------------------------------------
 
-    public virtual ICollection<Periodo> Periodo { get; set; }//propiedade do sistema para interligar/mapear chaves
+    public virtual ICollection<Periodo> Periodos { get; set; }//propiedade do sistema para interligar/mapear chaves
     public virtual ICollection<Veiculo> Veiculos { get; set; }//propiedade do sistema para interligar/mapear chaves   
 
+    public virtual ICollection<Ticket> Tickets{get; set;}//propiedade do sistema para interligar/mapear chaves   
 
     //----------------------------------------------------------------
 

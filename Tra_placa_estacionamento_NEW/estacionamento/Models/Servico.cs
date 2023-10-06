@@ -3,10 +3,11 @@ public class Servico
 {
 	[Key]
 	public int Id { get; set; }
-	public double? ValorPagar { get; set; }
 	public string? DescricaoServico { get; set; }
-	public double ValorHora { get; set; } = 7.50;
-
+	public double ValorHora { get; set; }
+	public double? ValorPagar { get; set; }
+	public string _ClienteCpf {get; set;}//atributo para poder inserir dados no banco
+	public int _PeriodoId {get; set;}//atributo para poder inserir dados no banco
 
 	//----------------------------------------------------------------
 

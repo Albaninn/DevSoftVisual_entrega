@@ -137,9 +137,10 @@ namespace estacionamento.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("_ClienteCpf")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("_PeriodoId")
+                    b.Property<int>("_PeriodoId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -163,6 +164,9 @@ namespace estacionamento.Migrations
                     b.Property<int>("ServicoId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("TicketId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("VeiculoPlaca")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -170,6 +174,8 @@ namespace estacionamento.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ServicoId");
+
+                    b.HasIndex("TicketId");
 
                     b.HasIndex("VeiculoPlaca");
 
@@ -288,7 +294,7 @@ namespace estacionamento.Migrations
                         .HasForeignKey("ServicoId");
 
                     b.HasOne("Ticket", null)
-                        .WithMany("Periodo")
+                        .WithMany("Periodos")
                         .HasForeignKey("TicketId");
                 });
 
@@ -296,11 +302,15 @@ namespace estacionamento.Migrations
                 {
                     b.HasOne("Cliente", "_Cliente")
                         .WithMany()
-                        .HasForeignKey("_ClienteCpf");
+                        .HasForeignKey("_ClienteCpf")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Periodo", "_Periodo")
                         .WithMany()
-                        .HasForeignKey("_PeriodoId");
+                        .HasForeignKey("_PeriodoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("_Cliente");
 
@@ -314,6 +324,10 @@ namespace estacionamento.Migrations
                         .HasForeignKey("ServicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Ticket", null)
+                        .WithMany("Tickets")
+                        .HasForeignKey("TicketId");
 
                     b.HasOne("Veiculo", "Veiculo")
                         .WithMany()
@@ -355,7 +369,9 @@ namespace estacionamento.Migrations
 
             modelBuilder.Entity("Ticket", b =>
                 {
-                    b.Navigation("Periodo");
+                    b.Navigation("Periodos");
+
+                    b.Navigation("Tickets");
 
                     b.Navigation("Veiculos");
                 });

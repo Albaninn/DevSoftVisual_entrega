@@ -55,7 +55,7 @@ public class PeriodoController : ControllerBase
     [Route("cadastrar")]
     public async Task<IActionResult> Cadastrar(Periodo periodo)
     {
-        await _context.AddAsync(periodo);
+        await _context.periodo.AddAsync(periodo);
         await _context.SaveChangesAsync();
         return Created("",periodo);
     }
