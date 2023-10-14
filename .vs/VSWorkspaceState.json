@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
-    "",
     "\\Tra_placa_estacionamento_NEW",
-    "\\Tra_placa_estacionamento_NEW\\estacionamento"
+    "\\Tra_placa_estacionamento_NEW\\estacionamento",
+    "\\Tra_placa_estacionamento_NEW\\estacionamento\\Data",
+    "\\Tra_placa_estacionamento_NEW\\estacionamento\\EntitiesConfiguration",
+    "\\Tra_placa_estacionamento_NEW\\estacionamento\\Migrations"
   ],
-  "SelectedNode": "\\Tra_placa_estacionamento_NEW\\estacionamento\\Models",
   "PreviewInSolutionExplorer": false
 }

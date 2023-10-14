@@ -6004,11 +6004,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guima\\OneDrive\\Documentos\\GitHub\\DevSoftVisual\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
+      "projectUniqueName": "C:\\Users\\guima\\source\\repos\\Albaninn\\DevSoftVisual_entrega\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
       "projectName": "estacionamento",
-      "projectPath": "C:\\Users\\guima\\OneDrive\\Documentos\\GitHub\\DevSoftVisual\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
+      "projectPath": "C:\\Users\\guima\\source\\repos\\Albaninn\\DevSoftVisual_entrega\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
       "packagesPath": "C:\\Users\\guima\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guima\\OneDrive\\Documentos\\GitHub\\DevSoftVisual\\Tra_placa_estacionamento_NEW\\estacionamento\\obj\\",
+      "outputPath": "C:\\Users\\guima\\source\\repos\\Albaninn\\DevSoftVisual_entrega\\Tra_placa_estacionamento_NEW\\estacionamento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guima\\AppData\\Roaming\\NuGet\\NuGet.Config",

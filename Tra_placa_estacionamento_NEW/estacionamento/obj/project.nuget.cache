@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BM6+63EVggAD+zrXZTME1aLtjhlexaz7+yE818VafWZpJv8g3AXVOlzpncqF68s3zGx00DeON+3FWVp8rHQ7Pw==",
+  "dgSpecHash": "al73bAABU20iL2qVF+sIALU/142rVvGFtgkc9QSbMqe2/WRkR2Tq8u/ZGwWFl5OLYO4XKRd/Y3K6H0RX7rI9LA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guima\\OneDrive\\Documentos\\GitHub\\DevSoftVisual\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
+  "projectFilePath": "C:\\Users\\guima\\source\\repos\\Albaninn\\DevSoftVisual_entrega\\Tra_placa_estacionamento_NEW\\estacionamento\\estacionamento.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guima\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\guima\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",

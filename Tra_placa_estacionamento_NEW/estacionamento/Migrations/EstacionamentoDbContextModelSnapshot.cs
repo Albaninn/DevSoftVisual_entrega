@@ -19,16 +19,16 @@ namespace estacionamento.Migrations
             modelBuilder.Entity("Cliente", b =>
                 {
                     b.Property<string>("Cpf")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(11).IsRequired();
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").IsRequired().HasMaxLength(30);
 
                     b.Property<int?>("Id")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(35).IsRequired();
 
                     b.HasKey("Cpf");
 
@@ -39,10 +39,10 @@ namespace estacionamento.Migrations
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("DescricaoMarca")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -53,16 +53,16 @@ namespace estacionamento.Migrations
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("DescricaoModelo")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(30);
 
                     b.Property<int?>("MarcaId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int>("Porte")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").HasDefaultValue(1);
 
                     b.HasKey("Id");
 
@@ -74,16 +74,16 @@ namespace estacionamento.Migrations
             modelBuilder.Entity("NotaFiscal", b =>
                 {
                     b.Property<string>("NumeroNota")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(10).IsRequired();
 
                     b.Property<string>("ClienteCpf")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(11).IsRequired();
 
                     b.Property<int?>("ServicoId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<double>("ValorDaNota")
-                        .HasColumnType("REAL");
+                        .HasColumnType("REAL").IsRequired();
 
                     b.HasKey("NumeroNota");
 
@@ -98,19 +98,19 @@ namespace estacionamento.Migrations
                 {
                     b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<DateTime?>("HoraEntrada")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(30).IsRequired();
 
                     b.Property<DateTime?>("HoraSaida")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(30);
 
                     b.Property<int?>("ServicoId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int?>("TicketId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.HasKey("Id");
 
@@ -125,23 +125,23 @@ namespace estacionamento.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("DescricaoServico")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(20).IsRequired();
 
                     b.Property<double>("ValorHora")
-                        .HasColumnType("REAL");
+                        .HasColumnType("REAL").IsRequired();
 
                     b.Property<double?>("ValorPagar")
                         .HasColumnType("REAL");
 
                     b.Property<string>("_ClienteCpf")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(11).IsRequired();
 
                     b.Property<int>("_PeriodoId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.HasKey("Id");
 
@@ -156,20 +156,20 @@ namespace estacionamento.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int>("CodTicket")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int>("ServicoId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int?>("TicketId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("VeiculoPlaca")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(7).IsRequired();
 
                     b.HasKey("Id");
 
@@ -185,29 +185,29 @@ namespace estacionamento.Migrations
             modelBuilder.Entity("Veiculo", b =>
                 {
                     b.Property<string>("Placa")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(7).IsRequired();
 
                     b.Property<string>("ClienteCpf")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(11).IsRequired();
 
                     b.Property<int>("CorExterna")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<string>("Descricao")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(20);
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(20);
 
                     b.Property<int?>("Id")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int?>("ModeloId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.Property<int?>("TicketId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").IsRequired();
 
                     b.HasKey("Placa");
 
@@ -229,10 +229,10 @@ namespace estacionamento.Migrations
                     b.HasBaseType("Veiculo");
 
                     b.Property<string>("Combustivel")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT").HasMaxLength(10);
 
                     b.Property<int?>("NroPortas")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER").HasMaxLength(7);
 
                     b.ToTable("veiculo", t =>
                         {
